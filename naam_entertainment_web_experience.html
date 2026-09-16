@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAAM ENTERTAINMENT LLP | Cinematic Production & Creative House</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              100: '#FAF3DC',
+              200: '#F4E3B2',
+              300: '#ECD085',
+              400: '#E2BD5B',
+              500: '#D4AF37', /* Core Gold */
+              600: '#BA9425',
+              700: '#947217',
+              800: '#6D5311',
+              900: '#46350B'
+            },
+            noir: {
+              950: '#040405',
+              900: '#09090b',
+              850: '#0f0f13',
+              800: '#141419',
+              700: '#1d1d24'
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #09090b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #D4AF37 0%, #6D5311 100%);
+      border-radius: 4px;
+    }
+
+    /* Metallic Gold Text Gradients */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF6D1 0%, #E8C366 35%, #C29329 70%, #F5DE88 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-subtle-border {
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gold-subtle-border:hover {
+      border-color: rgba(212, 175, 55, 0.65);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+    }
+
+    .gold-badge {
+      background: linear-gradient(90deg, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0.05) 100%);
+      border: 1px solid rgba(212,175,55,0.35);
+    }
+
+    /* Glassmorphism */
+    .glass-card {
+      background: rgba(14, 14, 18, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Interactive Fluid Canvas Layer */
+    #fluid-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 40;
+      mix-blend-mode: screen;
+    }
+
+    /* Geometric ambient light */
+    .radial-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.12) 0%, rgba(10, 10, 14, 0) 70%);
+    }
+
+    .noise-bg {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    /* SPA Page Views */
+    .page-view {
+      display: none;
+      animation: pageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .page-view.active-page {
+      display: block;
+    }
+    @keyframes pageFadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-noir-950 text-neutral-300 font-sans antialiased overflow-x-hidden relative selection:bg-gold-500/30 selection:text-gold-200">
+
+  <canvas id="fluid-canvas"></canvas>
+
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card border-b border-gold-500/10" id="main-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo Vector -->
+      <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 group">
+        <div class="relative flex flex-col items-start">
+          <div class="flex items-center space-x-1">
+            <!-- Distinct NAAM Custom Emblem -->
+            <svg class="h-8 md:h-10 w-auto text-gold-400 fill-current drop-shadow-[0_2px_10px_rgba(212,175,55,0.4)]" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="goldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFF3C4" />
+                  <stop offset="50%" stop-color="#D4AF37" />
+                  <stop offset="100%" stop-color="#996E1D" />
+                </linearGradient>
+              </defs>
+              <!-- N -->
+              <path d="M5 55 V5 L45 55 V5" stroke="url(#goldGradNav)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <!-- A1 -->
+              <path d="M70 55 L95 5 L120 55" stroke="url(#goldGradNav)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <polygon points="95,33 87,46 103,46" fill="url(#goldGradNav)"/>
+              <!-- A2 -->
+              <path d="M140 55 L165 5 L190 55" stroke="url(#goldGradNav)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <polygon points="165,33 157,46 173,46" fill="url(#goldGradNav)"/>
+              <!-- M -->
+              <path d="M210 55 V5 L235 37 L260 5 V55" stroke="url(#goldGradNav)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <span class="font-cinzel text-[8px] md:text-[9px] tracking-[0.32em] text-gold-400 font-semibold uppercase mt-0.5">
+            ENTERTAINMENT LLP
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs lg:text-sm uppercase tracking-widest font-medium">
+        <a href="#home" onclick="navigateTo('home')" class="nav-link text-gold-300 transition-colors">Home</a>
+        <a href="#about" onclick="navigateTo('about')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Vision</a>
+        <a href="#productions" onclick="navigateTo('productions')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Films</a>
+        <a href="#awards" onclick="navigateTo('awards')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Award</a>
+        <a href="#collaborations" onclick="navigateTo('collaborations')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Network</a>
+        <a href="#upcoming" onclick="navigateTo('upcoming')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Upcoming</a>
+        <a href="#verticals" onclick="navigateTo('verticals')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Verticals</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden sm:flex items-center space-x-4">
+        <a href="#contact" onclick="navigateTo('contact')" class="nav-link px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest text-noir-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-0.5">
+          Partner With Us
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-toggle" aria-label="Toggle Menu" class="md:hidden text-gold-400 p-2 focus:outline-none">
+        <i class="fa-solid fa-bars-staggered text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden md:hidden px-6 pt-3 pb-6 glass-card border-b border-gold-500/20 space-y-4 text-center">
+      <a href="#home" onclick="navigateTo('home')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Home</a>
+      <a href="#about" onclick="navigateTo('about')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Vision & Leadership</a>
+      <a href="#productions" onclick="navigateTo('productions')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Film Productions</a>
+      <a href="#awards" onclick="navigateTo('awards')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">National Award</a>
+      <a href="#collaborations" onclick="navigateTo('collaborations')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Collaborations</a>
+      <a href="#upcoming" onclick="navigateTo('upcoming')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Upcoming Slate</a>
+      <a href="#verticals" onclick="navigateTo('verticals')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Brand Verticals</a>
+      <a href="#contact" onclick="navigateTo('contact')" class="block py-2.5 rounded-full text-xs font-bold uppercase tracking-widest text-noir-950 bg-gold-400">Contact Studio</a>
+    </div>
+  </header>
+
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 noise-bg overflow-hidden">
+    <!-- Ambient backlights -->
+    <div class="absolute inset-0 radial-glow pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
+      
+      <!-- Studio Announcement Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gold-badge mb-8 backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+        <span class="text-xs font-semibold tracking-wider uppercase text-gold-300">Swarna Kamal National Award Winning Production House</span>
+      </div>
+
+      <!-- Hero Master Logo -->
+      <div class="mb-6 p-4">
+        <svg class="w-72 sm:w-96 md:w-[480px] lg:w-[580px] h-auto drop-shadow-[0_15px_35px_rgba(212,175,55,0.25)]" viewBox="0 0 460 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="naamGoldHero" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFF7D6" />
+              <stop offset="25%" stop-color="#EFD489" />
+              <stop offset="50%" stop-color="#D4AF37" />
+              <stop offset="75%" stop-color="#A57A1F" />
+              <stop offset="100%" stop-color="#E4BD57" />
+            </linearGradient>
+            <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <!-- N -->
+          <path d="M15 95 V15 L85 95 V15" stroke="url(#naamGoldHero)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- A -->
+          <path d="M125 95 L165 15 L205 95" stroke="url(#naamGoldHero)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+          <polygon points="165,58 152,78 178,78" fill="url(#naamGoldHero)"/>
+          <!-- A -->
+          <path d="M235 95 L275 15 L315 95" stroke="url(#naamGoldHero)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+          <polygon points="275,58 262,78 288,78" fill="url(#naamGoldHero)"/>
+          <!-- M -->
+          <path d="M345 95 V15 L385 65 L425 15 V95" stroke="url(#naamGoldHero)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+
+        <!-- Underline Subtitle with Flanking lines -->
+        <div class="flex items-center justify-center gap-4 mt-4 w-full max-w-lg mx-auto">
+          <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gold-500/60 to-gold-400"></div>
+          <h2 class="font-cinzel text-xs sm:text-sm md:text-base tracking-[0.45em] text-gold-300 font-bold uppercase whitespace-nowrap">
+            ENTERTAINMENT LLP
+          </h2>
+          <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-gold-500/60 to-gold-400"></div>
+        </div>
+      </div>
+
+      <p class="max-w-2xl text-neutral-300 text-sm sm:text-base md:text-lg font-light leading-relaxed mb-10">
+        Crafting transcendent stories, award-winning cinematic experiences, and cross-generational artistic legacies in Indian Cinema.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#productions" onclick="navigateTo('productions')" class="px-8 py-3.5 rounded-full font-semibold text-xs tracking-widest uppercase bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 text-noir-950 hover:brightness-110 shadow-[0_4px_25px_rgba(212,175,55,0.35)] transition-all">
+          Explore Portfolio
+        </a>
+        <a href="#about" onclick="navigateTo('about')" class="px-8 py-3.5 rounded-full font-semibold text-xs tracking-widest uppercase border border-gold-500/40 text-gold-300 hover:bg-gold-500/10 transition-all">
+          The Visionaries
+        </a>
+      </div>
+
+      <!-- Golden Fluid Hint -->
+      <div class="mt-14 text-gold-500/60 text-xs tracking-widest flex items-center gap-2">
+        <i class="fa-solid fa-wand-magic-sparkles text-gold-400 text-xs animate-bounce"></i>
+        <span>Move your cursor or swipe on mobile to release the molten gold flow</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-gold-500/20 bg-noir-900/60 py-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="p-4 border-r border-gold-500/10 last:border-r-0">
+          <div class="text-3xl lg:text-4xl font-cinzel font-bold text-gold-300">57th</div>
+          <div class="text-xs uppercase tracking-widest text-neutral-400 mt-1">National Film Award (Swarna Kamal)</div>
+        </div>
+        <div class="p-4 border-r border-gold-500/10 last:border-r-0">
+          <div class="text-3xl lg:text-4xl font-cinzel font-bold text-gold-300">15+</div>
+          <div class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Feature Film Projects</div>
+        </div>
+        <div class="p-4 border-r border-gold-500/10 last:border-r-0">
+          <div class="text-3xl lg:text-4xl font-cinzel font-bold text-gold-300">100%</div>
+          <div class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Artistic Integrity & High ROI</div>
+        </div>
+        <div class="p-4">
+          <div class="text-3xl lg:text-4xl font-cinzel font-bold text-gold-300">4</div>
+          <div class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Entertainment Verticals</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold">Leadership & Philosophy</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-cinzel font-bold text-white mt-2 mb-4">
+        Vision & <span class="gold-gradient-text">Creativity</span>
+      </h2>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto"></div>
+    </div>
+
+    <!-- 2 Founders Grid from PDF Pages 2 & 3 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
+      
+      <!-- Founder 1: M. Pradab Murali -->
+      <div class="glass-card rounded-2xl p-8 sm:p-10 gold-subtle-border flex flex-col justify-between relative overflow-hidden group">
+        <div class="absolute -right-16 -top-16 w-52 h-52 bg-gold-500/10 rounded-full blur-2xl group-hover:bg-gold-500/20 transition-all"></div>
+        
+        <div>
+          <!-- Header details -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
+            <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-gold-500/40 shrink-0 bg-noir-800 shadow-xl">
+              <!-- Illustrated Stylized Portrait Avatar -->
+              <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-neutral-800 to-noir-950 text-gold-300">
+                <i class="fa-solid fa-film text-4xl mb-1 text-gold-400"></i>
+                <span class="text-[9px] font-cinzel uppercase tracking-widest text-neutral-400">Filmmaker</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-gold-500/20 text-gold-300 border border-gold-500/30">Writer &bull; Director &bull; Producer</span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-cinzel font-bold text-white tracking-wide">M. PRADAB MURALI</h3>
+              <p class="text-xs text-neutral-400 tracking-wider uppercase mt-1">Creative Direction & Film Production</p>
+            </div>
+          </div>
+
+          <!-- Roles Badges -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-3 py-1 rounded-full bg-noir-800 text-neutral-300 border border-neutral-700">Feature Director</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-noir-800 text-neutral-300 border border-neutral-700">Screenplay Writer</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-noir-800 text-neutral-300 border border-neutral-700">Creative Producer</span>
+          </div>
+
+          <!-- Quote extracted verbatim from PDF Page 2 -->
+          <blockquote class="relative p-5 rounded-xl bg-noir-900/80 border-l-4 border-gold-400 italic text-neutral-300 text-sm sm:text-base leading-relaxed mb-6 font-serif">
+            <i class="fa-solid fa-quote-left text-gold-500/30 text-2xl absolute -top-3 left-3"></i>
+            "One of the things you do as a writer and as a filmmaker is grasp for resonant symbols and imagery without necessarily fully understanding it yourself."
+          </blockquote>
+        </div>
+
+        <div class="pt-6 border-t border-gold-500/10 flex items-center justify-between text-xs text-gold-400 font-cinzel tracking-wider">
+          <span>NAAM ENTERTAINMENT LLP</span>
+          <i class="fa-solid fa-compass text-sm"></i>
+        </div>
+      </div>
+
+      <!-- Founder 2: M. Karthikeyan -->
+      <div class="glass-card rounded-2xl p-8 sm:p-10 gold-subtle-border flex flex-col justify-between relative overflow-hidden group">
+        <div class="absolute -right-16 -top-16 w-52 h-52 bg-gold-500/10 rounded-full blur-2xl group-hover:bg-gold-500/20 transition-all"></div>
+
+        <div>
+          <!-- Header details -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
+            <div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-gold-500/40 shrink-0 bg-noir-800 shadow-xl">
+              <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-neutral-800 to-noir-950 text-gold-300">
+                <i class="fa-solid fa-award text-4xl mb-1 text-gold-400"></i>
+                <span class="text-[9px] font-cinzel uppercase tracking-widest text-neutral-400">Producer</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-gold-500/20 text-gold-300 border border-gold-500/30">National Award Producer</span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-cinzel font-bold text-white tracking-wide">M. KARTHIKEYAN</h3>
+              <p class="text-xs text-neutral-400 tracking-wider uppercase mt-1">Creative Producer & Production Designer</p>
+            </div>
+          </div>
+
+          <!-- Roles Badges extracted from Page 3 -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-3 py-1 rounded-full bg-noir-800 text-neutral-300 border border-neutral-700">&bull; Creative Producer</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-noir-800 text-neutral-300 border border-neutral-700">&bull; Co-Producer</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-noir-800 text-neutral-300 border border-neutral-700">&bull; Production Designer</span>
+          </div>
+
+          <!-- Bio extracted verbatim from PDF Page 3 -->
+          <div class="p-5 rounded-xl bg-noir-900/80 border-l-4 border-gold-400 text-neutral-300 text-sm sm:text-base leading-relaxed mb-6">
+            M. Karthikeyan's dedication to collaborative excellence has made him a trusted partner in the film industry. With roles spanning production, design, and on-screen appearances, he continuously delivers compelling contributions to cinema and entertainment.
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-gold-500/10 flex items-center justify-between text-xs text-gold-400 font-cinzel tracking-wider">
+          <span>NAAM ENTERTAINMENT LLP</span>
+          <i class="fa-solid fa-star text-sm"></i>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="awards" class="py-20 bg-noir-900/90 border-y border-gold-500/20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-gold-900/20 via-transparent to-gold-900/20 pointer-events-none"></div>
+    
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="glass-card rounded-3xl p-8 sm:p-12 lg:p-16 border-2 border-gold-500/40 shadow-[0_10px_50px_rgba(212,175,55,0.15)] relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Swarna Kamal Medalion & Award info -->
+          <div class="lg:col-span-4 text-center flex flex-col items-center">
+            <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-gold-400/80 p-2 relative flex items-center justify-center bg-noir-950 shadow-[0_0_35px_rgba(212,175,55,0.3)]">
+              <div class="w-full h-full rounded-full border border-gold-400/40 flex flex-col items-center justify-center text-center p-3 bg-gradient-to-b from-noir-900 to-noir-950">
+                <i class="fa-solid fa-trophy text-gold-400 text-3xl sm:text-4xl mb-2 animate-pulse"></i>
+                <span class="text-[10px] sm:text-xs font-cinzel font-bold text-gold-300 uppercase tracking-widest leading-tight">SWARNA KAMAL</span>
+              </div>
+            </div>
+            <span class="mt-4 text-xs tracking-widest uppercase text-gold-400 font-cinzel font-semibold">Government of India</span>
+          </div>
+
+          <!-- Award Story from PDF Page 6 -->
+          <div class="lg:col-span-8 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full gold-badge text-xs uppercase tracking-wider text-gold-300">
+              <i class="fa-solid fa-ribbon"></i> Winner 57th National Film Award
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-cinzel font-black text-white">
+              THE POSTMAN <span class="text-gold-400 text-2xl font-light">(2010)</span>
+            </h3>
+            <p class="text-gold-300/90 font-medium text-sm sm:text-base">
+              Awarded <span class="text-white font-semibold">Best Non-Feature Film (Swarna Kamal)</span> — Presented by Former Honorable President of India <span class="text-white font-semibold">Smt. Pratibha Patil</span>.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gold-500/20 text-sm">
+              <div class="bg-noir-950/70 p-3.5 rounded-xl border border-gold-500/15">
+                <span class="text-neutral-400 text-xs uppercase block">Producer</span>
+                <span class="text-white font-medium">B. Nageshwar Reddy, M. Karthikeyan</span>
+              </div>
+              <div class="bg-noir-950/70 p-3.5 rounded-xl border border-gold-500/15">
+                <span class="text-neutral-400 text-xs uppercase block">Directed By</span>
+                <span class="text-white font-medium">B. Manohar Reddy</span>
+              </div>
+              <div class="bg-noir-950/70 p-3.5 rounded-xl border border-gold-500/15 sm:col-span-2">
+                <span class="text-neutral-400 text-xs uppercase block">Institute & Academy</span>
+                <span class="text-white font-medium">L.V. Prasad Film & TV Academy</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productions" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold">Filmography & Works</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-cinzel font-bold text-white mt-2 mb-4">
+        Feature Films <span class="gold-gradient-text">Produced</span>
+      </h2>
+      <p class="text-neutral-400 text-sm sm:text-base">
+        Original productions crafted fully and jointly by NAAM Entertainment LLP across diverse cinematic genres.
+      </p>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-4"></div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-center flex-wrap gap-3 mb-12" id="film-filters">
+      <button onclick="filterFilms('all')" class="film-tab-btn active px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-gold-500 text-noir-950 shadow-md">All Projects</button>
+      <button onclick="filterFilms('produced')" class="film-tab-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-noir-800 text-neutral-300 border border-gold-500/30 hover:border-gold-400">Produced</button>
+      <button onclick="filterFilms('design')" class="film-tab-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-noir-800 text-neutral-300 border border-gold-500/30 hover:border-gold-400">Production Design</button>
+    </div>
+
+    <!-- Films Grid (Contents from PDF Pages 4 & 5) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="films-container">
+      
+      <!-- Film 1: LUCKY 777 -->
+      <div class="film-card group glass-card rounded-2xl overflow-hidden gold-subtle-border flex flex-col justify-between" data-category="produced">
+        <div class="relative h-60 bg-gradient-to-br from-amber-900/40 via-noir-900 to-noir-950 overflow-hidden flex items-center justify-center p-6">
+          <div class="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+          <div class="text-center z-10 transform group-hover:scale-105 transition-transform duration-500">
+            <span class="text-xs font-cinzel tracking-widest text-gold-300 block mb-1 uppercase">NAAM MOVIES</span>
+            <h3 class="text-3xl font-cinzel font-black gold-gradient-text">LUCKY 777</h3>
+            <span class="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/40">
+              Shooting in Progress
+            </span>
+          </div>
+          <div class="absolute bottom-3 right-3 text-gold-400/40 text-4xl font-black">777</div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Director</span>
+              <p class="text-white font-semibold">Pradab Murali M</p>
+            </div>
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Starring Ensemble</span>
+              <p class="text-neutral-300 text-sm">Vimal, Sunil, Poojitha Ponnada, Dev Charan, Kingsley, Varshini, Motta Rajendran</p>
+            </div>
+          </div>
+          <div class="pt-4 mt-6 border-t border-gold-500/10 flex justify-between items-center text-xs text-gold-400">
+            <span>Feature Film</span>
+            <i class="fa-solid fa-clapperboard"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Film 2: RANAM -->
+      <div class="film-card group glass-card rounded-2xl overflow-hidden gold-subtle-border flex flex-col justify-between" data-category="produced">
+        <div class="relative h-60 bg-gradient-to-br from-red-950/40 via-noir-900 to-noir-950 overflow-hidden flex items-center justify-center p-6">
+          <div class="text-center z-10 transform group-hover:scale-105 transition-transform duration-500">
+            <span class="text-xs font-cinzel tracking-widest text-gold-300 block mb-1 uppercase">PATTURAM</span>
+            <h3 class="text-3xl font-cinzel font-black text-red-500 tracking-wider">ரணம் (RANAM)</h3>
+            <span class="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/20 text-red-300 border border-red-500/40">
+              Grand Release
+            </span>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Director</span>
+              <p class="text-white font-semibold">Vijayasekaran</p>
+            </div>
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Starring</span>
+              <p class="text-neutral-300 text-sm">Aazan, Motta Rajendran, Poonam Kaur</p>
+            </div>
+          </div>
+          <div class="pt-4 mt-6 border-t border-gold-500/10 flex justify-between items-center text-xs text-gold-400">
+            <span>Theatrical Release</span>
+            <i class="fa-solid fa-film"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Film 3: KARPAVAI KATTRAPIN (2014) -->
+      <div class="film-card group glass-card rounded-2xl overflow-hidden gold-subtle-border flex flex-col justify-between" data-category="produced">
+        <div class="relative h-60 bg-gradient-to-br from-emerald-950/30 via-noir-900 to-noir-950 overflow-hidden flex items-center justify-center p-6">
+          <div class="text-center z-10 transform group-hover:scale-105 transition-transform duration-500">
+            <span class="text-xs font-cinzel tracking-widest text-neutral-400 block mb-1 uppercase">Tamil Feature</span>
+            <h3 class="text-2xl font-cinzel font-bold text-white">KARPAVAI KATTRAPIN</h3>
+            <span class="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider bg-neutral-800 text-neutral-300">
+              Released: 2014
+            </span>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Director</span>
+              <p class="text-white font-semibold">Pattram Senthil</p>
+            </div>
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Starring</span>
+              <p class="text-neutral-300 text-sm">Abinitha, Madhu Raghuram, Singampuli</p>
+            </div>
+          </div>
+          <div class="pt-4 mt-6 border-t border-gold-500/10 flex justify-between items-center text-xs text-gold-400">
+            <span>Commercial Release</span>
+            <i class="fa-solid fa-tape"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Film 4: MANNARU (2012) -->
+      <div class="film-card group glass-card rounded-2xl overflow-hidden gold-subtle-border flex flex-col justify-between" data-category="produced">
+        <div class="relative h-60 bg-gradient-to-br from-cyan-950/30 via-noir-900 to-noir-950 overflow-hidden flex items-center justify-center p-6">
+          <div class="text-center z-10 transform group-hover:scale-105 transition-transform duration-500">
+            <span class="text-xs font-cinzel tracking-widest text-neutral-400 block mb-1 uppercase">Village Drama</span>
+            <h3 class="text-2xl font-cinzel font-bold text-white">மன்னாரு (MANNARU)</h3>
+            <span class="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider bg-neutral-800 text-neutral-300">
+              Released: 2012
+            </span>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Director</span>
+              <p class="text-white font-semibold">Jai Shankar</p>
+            </div>
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Starring</span>
+              <p class="text-neutral-300 text-sm">Appukutty (National Award Winner), Swathy, Anjalai, Thambi Ramaiah, Pandiarajan</p>
+            </div>
+          </div>
+          <div class="pt-4 mt-6 border-t border-gold-500/10 flex justify-between items-center text-xs text-gold-400">
+            <span>Critically Acclaimed</span>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Film 5: THITTIVASAL (Production Design Highlight) -->
+      <div class="film-card group glass-card rounded-2xl overflow-hidden gold-subtle-border flex flex-col justify-between" data-category="design">
+        <div class="relative h-60 bg-gradient-to-br from-orange-950/40 via-noir-900 to-noir-950 overflow-hidden flex items-center justify-center p-6">
+          <div class="text-center z-10 transform group-hover:scale-105 transition-transform duration-500">
+            <span class="text-xs font-cinzel tracking-widest text-gold-300 block mb-1 uppercase">Production Design</span>
+            <h3 class="text-2xl font-cinzel font-bold text-white">திட்டிவாசல் (THITTIVASAL)</h3>
+            <span class="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider bg-gold-500/20 text-gold-300 border border-gold-500/30">
+              Tamil (2017)
+            </span>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Direction & Production</span>
+              <p class="text-white font-semibold">Dir: Pradab Murali M | Prod: Srinivas Rao, Pratap Murali</p>
+            </div>
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Starring</span>
+              <p class="text-neutral-300 text-sm">Nassar, Mahendran, Hanumanthe Gowda, Kinni Vinod</p>
+            </div>
+          </div>
+          <div class="pt-4 mt-6 border-t border-gold-500/10 flex justify-between items-center text-xs text-gold-400">
+            <span>Visual Craftsmanship</span>
+            <i class="fa-solid fa-palette"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Film 6: SIVANGI (Production Design Highlight) -->
+      <div class="film-card group glass-card rounded-2xl overflow-hidden gold-subtle-border flex flex-col justify-between" data-category="design">
+        <div class="relative h-60 bg-gradient-to-br from-purple-950/40 via-noir-900 to-noir-950 overflow-hidden flex items-center justify-center p-6">
+          <div class="text-center z-10 transform group-hover:scale-105 transition-transform duration-500">
+            <span class="text-xs font-cinzel tracking-widest text-gold-300 block mb-1 uppercase">Production Design</span>
+            <h3 class="text-2xl font-cinzel font-bold text-white">சிவாங்கி (SIVANGI)</h3>
+            <span class="inline-block mt-2 px-3 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider bg-purple-500/20 text-purple-300 border border-purple-500/30">
+              Telugu & Tamil (2014)
+            </span>
+          </div>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Direction & Production</span>
+              <p class="text-white font-semibold">Dir: Osho Tulasi Ram | Prod: B. Nageshwar Reddy, Osho Tulasiram</p>
+            </div>
+            <div>
+              <span class="text-[11px] text-neutral-500 uppercase tracking-widest block font-medium">Starring</span>
+              <p class="text-neutral-300 text-sm">Charmy Kaur, Uttej, Vijay Sai</p>
+            </div>
+          </div>
+          <div class="pt-4 mt-6 border-t border-gold-500/10 flex justify-between items-center text-xs text-gold-400">
+            <span>Bilingual Feature</span>
+            <i class="fa-solid fa-paintbrush"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="upcoming" class="py-20 bg-noir-900 border-t border-gold-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold">Next In Line</span>
+        <h2 class="text-3xl sm:text-4xl font-cinzel font-bold text-white mt-2">
+          Upcoming <span class="gold-gradient-text">Milestones</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        
+        <!-- Upcoming Film: #PM3 / Vararthi -->
+        <div class="glass-card rounded-3xl p-8 sm:p-10 border border-gold-500/30 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 p-6 opacity-10">
+            <i class="fa-solid fa-video text-8xl text-gold-400"></i>
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full gold-badge text-xs uppercase tracking-wider text-gold-300 mb-6">
+              <i class="fa-solid fa-bullhorn"></i> Upcoming Major Motion Picture
+            </div>
+
+            <h3 class="text-3xl font-cinzel font-black text-white mb-1">
+              #PM 3 <span class="gold-gradient-text font-serif italic text-2xl ml-2">வரார்த்தீ</span>
+            </h3>
+            <p class="text-xs uppercase tracking-widest text-neutral-400 mb-6">Screenplay & Direction: Pradab Murali M</p>
+
+            <!-- Film Crew Credits from PDF Page 8 -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs mb-6">
+              <div class="p-3 bg-noir-950 rounded-xl border border-gold-500/15">
+                <span class="text-neutral-500 uppercase block text-[10px]">Story</span>
+                <span class="text-white font-medium">Kamaran</span>
+              </div>
+              <div class="p-3 bg-noir-950 rounded-xl border border-gold-500/15">
+                <span class="text-neutral-500 uppercase block text-[10px]">DOP</span>
+                <span class="text-white font-medium">Shelvakumar P</span>
+              </div>
+              <div class="p-3 bg-noir-950 rounded-xl border border-gold-500/15">
+                <span class="text-neutral-500 uppercase block text-[10px]">Music</span>
+                <span class="text-white font-medium">Raja Ravi</span>
+              </div>
+              <div class="p-3 bg-noir-950 rounded-xl border border-gold-500/15">
+                <span class="text-neutral-500 uppercase block text-[10px]">Editor</span>
+                <span class="text-white font-medium">Bharani V</span>
+              </div>
+              <div class="p-3 bg-noir-950 rounded-xl border border-gold-500/15 col-span-2">
+                <span class="text-neutral-500 uppercase block text-[10px]">Producers</span>
+                <span class="text-white font-medium">Pradab Murali M &bull; Karthikeyan M &bull; Kamaran</span>
+              </div>
+            </div>
+
+            <!-- Track release alert -->
+            <div class="p-4 rounded-xl bg-gold-500/10 border border-gold-500/30 text-xs text-gold-200">
+              <i class="fa-solid fa-music mr-2 text-gold-400"></i>
+              Special Vinayagar Track: <strong>'யானை முகத்தானே'</strong> First Look & Audio Release.
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-gold-500/20 text-xs text-neutral-400 flex items-center justify-between">
+            <span>NAAM ENTERTAINMENT LLP</span>
+            <span class="text-gold-300 font-semibold">Production In Progress</span>
+          </div>
+        </div>
+
+        <!-- Spiritual & Cultural Initiative: Kanda Kailayam Foundation -->
+        <div class="glass-card rounded-3xl p-8 sm:p-10 border border-gold-500/30 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 p-6 opacity-10">
+            <i class="fa-solid fa-om text-8xl text-gold-400"></i>
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full gold-badge text-xs uppercase tracking-wider text-gold-300 mb-6">
+              <i class="fa-solid fa-hands-praying"></i> Cultural & Divine Legacy
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-cinzel font-bold text-white mb-1">
+              KANDA KAILAYAM FOUNDATION
+            </h3>
+            <p class="text-xs uppercase tracking-widest text-gold-400 mb-4 font-cinzel">Service &bull; Spirituality &bull; Culture &bull; Humanity</p>
+
+            <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+              Mega Temple construction of Lord Murugan at the sacred abode of Palani. Commencing with the monumental <strong>108,000 Yaaga Thiruvelvi Thiruvizha</strong> (March 22 – March 31).
+            </p>
+
+            <div class="space-y-2 text-xs text-neutral-300 bg-noir-950 p-4 rounded-xl border border-gold-500/15 mb-6">
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-gold-400"></i>
+                <span>Arupadai Veedu Sacred Initiative (Palani)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-gold-400"></i>
+                <span>Kavadi, Paal Kudam, Special Therottam & Thirukalyanam</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-gold-400"></i>
+                <span>Direct Helpline: +91 9698489000</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
+            <a href="https://www.kandakailayamfoundation.org" target="_blank" rel="noopener noreferrer" class="text-xs text-gold-400 hover:text-gold-300 font-semibold flex items-center gap-2">
+              <span>www.kandakailayamfoundation.org</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+            <span class="text-xs text-neutral-400">Tamil Nadu, India</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="collaborations" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold">Industry Network</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-cinzel font-bold text-white mt-2 mb-4">
+        Collaborations with <span class="gold-gradient-text">Esteemed Colleagues</span>
+      </h2>
+      <p class="text-neutral-400 text-sm sm:text-base">
+        A long-standing portfolio of creative, legal, production, and acting contributions alongside the leading names in Tamil and Indian cinema.
+      </p>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-4"></div>
+    </div>
+
+    <!-- Responsive Film Collaborations Table (Page 7 in PDF) -->
+    <div class="glass-card rounded-2xl overflow-hidden border border-gold-500/20 shadow-2xl">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-neutral-300">
+          <thead class="bg-noir-900/90 text-gold-400 text-xs font-cinzel uppercase tracking-widest border-b border-gold-500/20">
+            <tr>
+              <th scope="col" class="px-6 py-4">Year</th>
+              <th scope="col" class="px-6 py-4">Film Title</th>
+              <th scope="col" class="px-6 py-4">Starring Cast</th>
+              <th scope="col" class="px-6 py-4">Director</th>
+              <th scope="col" class="px-6 py-4">Contribution / Notes</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gold-500/10 text-xs sm:text-sm">
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2025</td>
+              <td class="px-6 py-4 font-semibold text-white">Bell Bottom</td>
+              <td class="px-6 py-4 text-neutral-300">Krishna, Mahima Nambiar</td>
+              <td class="px-6 py-4 text-neutral-400">Sathyasiva</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-noir-800 text-neutral-300 border border-neutral-700">Worked with Director</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2021</td>
+              <td class="px-6 py-4 font-semibold text-white">Raajavamsam</td>
+              <td class="px-6 py-4 text-neutral-300">M. Sasikumar, Nikki Galrani, Radha Ravi, Yogi Babu</td>
+              <td class="px-6 py-4 text-neutral-400">K. V. Kathirvelu</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-noir-800 text-neutral-300 border border-neutral-700">Worked with Director</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2021</td>
+              <td class="px-6 py-4 font-semibold text-white">Rs. 2000</td>
+              <td class="px-6 py-4 text-neutral-300">Veera, Mahima Nambiar, Sendrayan</td>
+              <td class="px-6 py-4 text-neutral-400">Rudhran</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-amber-500/10 text-gold-300 border border-gold-500/30">Worked on Legal Side</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2020</td>
+              <td class="px-6 py-4 font-semibold text-white">Seeru</td>
+              <td class="px-6 py-4 text-neutral-300">Jiiva, Riya Suman, Navdeep, Varun</td>
+              <td class="px-6 py-4 text-neutral-400">Rathina Shiva</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-gold-500/20 text-gold-300 border border-gold-500/40">Worked with Dir; Acted with Hero</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2017</td>
+              <td class="px-6 py-4 font-semibold text-white">1945</td>
+              <td class="px-6 py-4 text-neutral-300">Rana Daggubati, Regina Cassandra, Sathyaraj, Nassar</td>
+              <td class="px-6 py-4 text-neutral-400">Sathyasiva</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-noir-800 text-neutral-300 border border-neutral-700">Worked with Director</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2016</td>
+              <td class="px-6 py-4 font-semibold text-white">Rekka</td>
+              <td class="px-6 py-4 text-neutral-300">Vijay Sethupathi, Lakshmi Menon, Sija Rose</td>
+              <td class="px-6 py-4 text-neutral-400">Rathina Shiva</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-gold-500/20 text-gold-300 border border-gold-500/40">Worked with Dir; Acted with Hero</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2015</td>
+              <td class="px-6 py-4 font-semibold text-white">Sivappu</td>
+              <td class="px-6 py-4 text-neutral-300">Rajkiran, Naveen Chandra, Rupa Manjari</td>
+              <td class="px-6 py-4 text-neutral-400">Sathyasiva</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-noir-800 text-neutral-300 border border-neutral-700">Worked with Late Muktha Srinivasan</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2015</td>
+              <td class="px-6 py-4 font-semibold text-white">Vaalu</td>
+              <td class="px-6 py-4 text-neutral-300">Silambarasan TR (STR), Hansika Motwani, Santhanam</td>
+              <td class="px-6 py-4 text-neutral-400">M. Jeevan</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-gold-500/20 text-gold-300 border border-gold-500/40">Worked with Dir; Acted with STR</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2014</td>
+              <td class="px-6 py-4 font-semibold text-white">Mosakutty</td>
+              <td class="px-6 py-4 text-neutral-300">Veera, Mahima Nambiar, Sendrayan</td>
+              <td class="px-6 py-4 text-neutral-400">Vijay Chandar</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-noir-800 text-neutral-300 border border-neutral-700">Worked with Dir; Acted with Hero</span></td>
+            </tr>
+            <tr class="hover:bg-gold-500/5 transition-colors">
+              <td class="px-6 py-4 font-bold text-gold-400">2014</td>
+              <td class="px-6 py-4 font-semibold text-white">Manjapai</td>
+              <td class="px-6 py-4 text-neutral-300">Vimal, Lakshmi Menon, Raj Kiran, Ashwin Raja</td>
+              <td class="px-6 py-4 text-neutral-400">Ragavan</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 rounded bg-amber-500/10 text-gold-300 border border-gold-500/30">Worked on Legal Side</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="p-4 bg-noir-950 text-center text-xs text-neutral-400 border-t border-gold-500/10">
+        + Over <strong class="text-gold-300">10+ additional feature films</strong> spanning major Tamil Nadu production banners.
+      </div>
+    </div>
+  </section>
+
+  <section id="verticals" class="py-20 bg-noir-900 border-y border-gold-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold">Our Portfolio Companies</span>
+        <h2 class="text-3xl sm:text-4xl font-cinzel font-bold text-white mt-2">
+          NAAM Entertainment <span class="gold-gradient-text">Verticals</span>
+        </h2>
+      </div>
+
+      <!-- 4 Brand Verticals from PDF Page 11 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Vertical 1 -->
+        <div class="glass-card rounded-2xl p-6 text-center gold-subtle-border hover:-translate-y-1 transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto bg-noir-950 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-4 shadow-lg">
+            <i class="fa-solid fa-film"></i>
+          </div>
+          <h3 class="font-cinzel font-bold text-lg text-white mb-1">NAAM MOVIES</h3>
+          <p class="text-xs text-neutral-400">Feature film financing, script incubation, end-to-end line production, and distribution.</p>
+        </div>
+
+        <!-- Vertical 2 -->
+        <div class="glass-card rounded-2xl p-6 text-center gold-subtle-border hover:-translate-y-1 transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto bg-noir-950 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-4 shadow-lg">
+            <i class="fa-solid fa-compact-disc"></i>
+          </div>
+          <h3 class="font-cinzel font-bold text-lg text-white mb-1">NAAM AUDIO</h3>
+          <p class="text-xs text-neutral-400">Original soundtracks, devotional hymns, artist management, and worldwide music streaming distribution.</p>
+        </div>
+
+        <!-- Vertical 3 -->
+        <div class="glass-card rounded-2xl p-6 text-center gold-subtle-border hover:-translate-y-1 transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto bg-noir-950 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-4 shadow-lg">
+            <i class="fa-solid fa-rectangle-ad"></i>
+          </div>
+          <h3 class="font-cinzel font-bold text-lg text-white mb-1">NAAM ADS & EVENTS</h3>
+          <p class="text-xs text-neutral-400">Corporate brand films, high-impact television commercials, grand audio launches, and cultural spectacles.</p>
+        </div>
+
+        <!-- Vertical 4 -->
+        <div class="glass-card rounded-2xl p-6 text-center gold-subtle-border hover:-translate-y-1 transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto bg-noir-950 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-4 shadow-lg">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h3 class="font-cinzel font-bold text-lg text-white mb-1">NAAM SPORTS</h3>
+          <p class="text-xs text-neutral-400">Talent development, sports media production, regional leagues, and tournament promotions.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold">Strategic Value</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-cinzel font-bold text-white mt-2 mb-4">
+        Why Partner <span class="gold-gradient-text">With Us?</span>
+      </h2>
+      <p class="text-neutral-400 text-sm sm:text-base">
+        Combining artistic merit with robust commercial execution to maximize value for co-producers, investors, and creative talents.
+      </p>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-4"></div>
+    </div>
+
+    <!-- 7 Strategic Pillars from PDF Page 10 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <div class="glass-card p-6 rounded-2xl gold-subtle-border">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0">
+            <i class="fa-solid fa-medal"></i>
+          </div>
+          <div>
+            <h4 class="font-cinzel font-bold text-white text-base mb-1">Proven Success</h4>
+            <p class="text-xs text-neutral-400 leading-relaxed">Award-winning films (National Award Swarna Kamal) and global projects with a steadfast track record.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl gold-subtle-border">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0">
+            <i class="fa-solid fa-users-viewfinder"></i>
+          </div>
+          <div>
+            <h4 class="font-cinzel font-bold text-white text-base mb-1">Vast Market Potential</h4>
+            <p class="text-xs text-neutral-400 leading-relaxed">Direct access to India's diverse and expansive audience across theatrical, satellite, and digital OTT windows.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl gold-subtle-border">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div>
+            <h4 class="font-cinzel font-bold text-white text-base mb-1">High ROI</h4>
+            <p class="text-xs text-neutral-400 leading-relaxed">Profitable, commercially viable projects structured with sharp budget management and artistic integrity.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl gold-subtle-border">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <div>
+            <h4 class="font-cinzel font-bold text-white text-base mb-1">Innovative Vision</h4>
+            <p class="text-xs text-neutral-400 leading-relaxed">Unique, impactful storytelling that leads the industry and breaks new cinematic ground.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl gold-subtle-border">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0">
+            <i class="fa-solid fa-handshake"></i>
+          </div>
+          <div>
+            <h4 class="font-cinzel font-bold text-white text-base mb-1">Collaborative Edge</h4>
+            <p class="text-xs text-neutral-400 leading-relaxed">Work shoulder-to-shoulder with celebrated filmmakers, distinguished technicians, and top star cast.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl gold-subtle-border">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0">
+            <i class="fa-solid fa-display"></i>
+          </div>
+          <div>
+            <h4 class="font-cinzel font-bold text-white text-base mb-1">Future-Ready Content</h4>
+            <p class="text-xs text-neutral-400 leading-relaxed">From traditional silver-screen blockbusters to next-gen digital platforms, adapting fluidly to evolving trends.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl gold-subtle-border md:col-span-2 lg:col-span-3">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0">
+            <i class="fa-solid fa-monument"></i>
+          </div>
+          <div>
+            <h4 class="font-cinzel font-bold text-white text-base mb-1">Cultural Legacy</h4>
+            <p class="text-xs text-neutral-400 leading-relaxed">Creating stories, spiritual monuments, and cultural assets that inspire and entertain across generations.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 bg-noir-900 border-t border-gold-500/20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Left: Studio Info & Official Contact Details from PDF Pages 10 & 11 -->
+        <div class="lg:col-span-5 space-y-8">
+          <div>
+            <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold">Join Hands With Us</span>
+            <h2 class="text-3xl sm:text-4xl font-cinzel font-bold text-white mt-2">
+              Be Part of the <span class="gold-gradient-text">Journey</span>
+            </h2>
+            <p class="text-neutral-400 text-sm mt-3 leading-relaxed">
+              Join hands with us to craft impactful stories and shape the future of Indian entertainment. We welcome script submissions, co-production proposals, and brand associations.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- Direct Helpline Phones -->
+            <div class="p-4 rounded-xl glass-card border border-gold-500/20 flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase tracking-wider text-neutral-500 block">Call Studio Hotlines</span>
+                  <div class="text-sm font-semibold text-white space-x-2">
+                    <a href="tel:9698489000" class="hover:text-gold-300">9698489000</a> &bull;
+                    <a href="tel:9500040404" class="hover:text-gold-300">9500040404</a> &bull;
+                    <a href="tel:7299012342" class="hover:text-gold-300">7299012342</a>
+                  </div>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('9698489000, 9500040404, 7299012342')" title="Copy Phone Numbers" class="p-2 text-neutral-400 hover:text-gold-300">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Email -->
+            <div class="p-4 rounded-xl glass-card border border-gold-500/20 flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase tracking-wider text-neutral-500 block">Official Inquiries</span>
+                  <a href="mailto:naamentertainmentllp@gmail.com" class="text-sm font-semibold text-white hover:text-gold-300">
+                    naamentertainmentllp@gmail.com
+                  </a>
+                </div>
+              </div>
+              <button onclick="copyToClipboard('naamentertainmentllp@gmail.com')" title="Copy Email" class="p-2 text-neutral-400 hover:text-gold-300">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Studio Address (Kodambakkam Chennai - Hub of Kollywood) -->
+            <div class="p-4 rounded-xl glass-card border border-gold-500/20 flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0 mt-1">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase tracking-wider text-neutral-500 block">Registered Studio Address</span>
+                <p class="text-sm text-neutral-200 leading-relaxed font-medium">
+                  #9, 5th Floor, Davids Tower, Ashok Nagar Main Road, Kodambakkam, Chennai - 600024, Tamil Nadu, India.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Proposal / Collaboration Form -->
+        <div class="lg:col-span-7">
+          <div class="glass-card rounded-3xl p-8 sm:p-10 border border-gold-500/30 shadow-2xl">
+            <h3 class="text-xl font-cinzel font-bold text-white mb-2">Initiate Collaboration</h3>
+            <p class="text-xs text-neutral-400 mb-6">Send your synopsis, co-production proposal, or brand inquiry to our executive board.</p>
+
+            <form id="contact-form" class="space-y-4" onsubmit="handleContactSubmit(event)">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs uppercase tracking-wider text-neutral-400 mb-1">Your Name</label>
+                  <input type="text" required placeholder="e.g. Director / Producer Name" class="w-full px-4 py-3 rounded-xl bg-noir-950/80 border border-gold-500/20 text-white placeholder-neutral-600 focus:outline-none focus:border-gold-400 text-sm" />
+                </div>
+                <div>
+                  <label class="block text-xs uppercase tracking-wider text-neutral-400 mb-1">Phone Number</label>
+                  <input type="tel" required placeholder="+91 98765 43210" class="w-full px-4 py-3 rounded-xl bg-noir-950/80 border border-gold-500/20 text-white placeholder-neutral-600 focus:outline-none focus:border-gold-400 text-sm" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs uppercase tracking-wider text-neutral-400 mb-1">Email Address</label>
+                  <input type="email" required placeholder="contact@domain.com" class="w-full px-4 py-3 rounded-xl bg-noir-950/80 border border-gold-500/20 text-white placeholder-neutral-600 focus:outline-none focus:border-gold-400 text-sm" />
+                </div>
+                <div>
+                  <label class="block text-xs uppercase tracking-wider text-neutral-400 mb-1">Inquiry Purpose</label>
+                  <select class="w-full px-4 py-3 rounded-xl bg-noir-950/80 border border-gold-500/20 text-white focus:outline-none focus:border-gold-400 text-sm">
+                    <option>Film Co-Production / Investment</option>
+                    <option>Script Pitch & Direction</option>
+                    <option>NAAM Audio / Music Rights</option>
+                    <option>Production Design & Art Direction</option>
+                    <option>Ads, Corporate & Event Execution</option>
+                    <option>Kanda Kailayam Foundation Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-neutral-400 mb-1">Project Synopsis or Message</label>
+                <textarea rows="4" required placeholder="Briefly describe your concept, investment outline or query..." class="w-full px-4 py-3 rounded-xl bg-noir-950/80 border border-gold-500/20 text-white placeholder-neutral-600 focus:outline-none focus:border-gold-400 text-sm resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-xl font-cinzel font-bold text-xs tracking-[0.2em] uppercase bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 text-noir-950 hover:brightness-110 shadow-lg transition-all">
+                Submit Collaboration Request
+              </button>
+            </form>
+
+            <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs text-center">
+              Thank you. Your inquiry has been routed to NAAM Entertainment LLP leadership. Our team will get in touch shortly.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-noir-950 border-t border-gold-500/20 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      
+      <!-- Brand & Copy -->
+      <div class="flex flex-col items-center md:items-start">
+        <span class="font-cinzel text-lg font-black gold-gradient-text tracking-wider">NAAM ENTERTAINMENT LLP</span>
+        <span class="text-xs text-neutral-500 mt-1">
+          Kodambakkam, Chennai - 600024 &bull; www.naamentertainmentllp.com
+        </span>
+      </div>
+
+      <!-- Social & Quick Links -->
+      <div class="flex items-center space-x-6 text-neutral-400 text-lg">
+        <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="hover:text-gold-300 transition-colors" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></a>
+        <a href="mailto:naamentertainmentllp@gmail.com" class="hover:text-gold-300 transition-colors" title="Email Studio"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:9698489000" class="hover:text-gold-300 transition-colors" title="Call Us"><i class="fa-solid fa-phone"></i></a>
+      </div>
+
+      <!-- Legal -->
+      <div class="text-xs text-neutral-500">
+        &copy; <span id="year">2026</span> NAAM Entertainment LLP. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Modal for Clipboard Action -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-gold-400 text-noir-950 px-5 py-3 rounded-xl font-medium text-xs shadow-2xl flex items-center gap-2">
+    <i class="fa-solid fa-check-circle"></i>
+    <span id="toast-text">Copied to clipboard!</span>
+  </div>
+
+  <script>
+    /* -------------------------------------------------------------
+       SPA ROUTING & DOM RESTRUCTURING SYSTEM
+       Dynamically converts sequential sections into isolated pages
+    ------------------------------------------------------------- */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Define page structures mapping route IDs to section IDs
+      const pageStructure = {
+        'home': ['hero', 'stats-section'],
+        'about': ['about'],
+        'productions': ['productions'],
+        'awards': ['awards'],
+        'collaborations': ['collaborations'],
+        'upcoming': ['upcoming'],
+        'verticals': ['verticals', 'why-partner'],
+        'contact': ['contact']
+      };
+
+      // Add missing IDs for dynamic wrapping
+      const statsEl = document.querySelector('section.border-y.bg-noir-900\\/60');
+      if (statsEl) statsEl.id = 'stats-section';
+      
+      const whyPartnerEl = document.querySelector('section.py-24:not([id])');
+      if (whyPartnerEl) whyPartnerEl.id = 'why-partner';
+
+      // Create main viewport container
+      const mainContainer = document.createElement('main');
+      mainContainer.className = 'w-full min-h-screen pt-20 pb-10 relative z-10';
+      
+      const header = document.getElementById('main-nav');
+      header.after(mainContainer);
+
+      // Reparent DOM elements into isolated views
+      for (const [pageId, sectionIds] of Object.entries(pageStructure)) {
+        const pageDiv = document.createElement('div');
+        pageDiv.id = 'page-' + pageId;
+        pageDiv.className = 'page-view' + (pageId === 'home' ? ' active-page' : '');
+        
+        // Counteract the header padding for the immersive hero section
+        if (pageId === 'home') pageDiv.classList.add('-mt-20'); 
+
+        sectionIds.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) pageDiv.appendChild(el);
+        });
+        mainContainer.appendChild(pageDiv);
+      }
+      
+      // Handle initial load routing if hash exists
+      const hash = window.location.hash.substring(1);
+      if (pageStructure[hash]) {
+        navigateTo(hash);
+      }
+    });
+
+    // Global navigation handler
+    window.navigateTo = function(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page-view').forEach(view => {
+        view.classList.remove('active-page');
+      });
+      // Show target page
+      const target = document.getElementById('page-' + pageId);
+      if (target) target.classList.add('active-page');
+
+      // Update nav link styles
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('text-gold-300');
+        link.classList.add('text-neutral-300');
+      });
+      
+      // Highlight active links
+      document.querySelectorAll(`a[href="#${pageId}"]`).forEach(link => {
+         link.classList.add('text-gold-300');
+         link.classList.remove('text-neutral-300');
+      });
+
+      // Scroll to top smoothly and close mobile menu
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('mobile-drawer').classList.add('hidden');
+    };
+
+    /* -------------------------------------------------------------
+       ELEGANT GOLDEN PARTICLE DUST TRAIL SYSTEM
+       Creates a sophisticated, fading trail of golden dust particles
+       that strictly follows the user's cursor or touch input.
+    ------------------------------------------------------------- */
+    (function () {
+      const canvas = document.getElementById('fluid-canvas');
+      const ctx = canvas.getContext('2d');
+
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      // Handle Resize smoothly
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      // Pointer state
+      const pointer = {
+        x: null,
+        y: null,
+        isMoving: false
+      };
+
+      // Golden Dust Particles Pool
+      const particles = [];
+      const MAX_PARTICLES = 150; // Keep it lightweight and elegant
+
+      // Refined Golden Color Palette for the dust
+      const GOLD_COLORS = [
+        '255, 247, 214', // Lightest gold highlight
+        '239, 212, 137', // Bright gold
+        '212, 175, 55',  // Core brand gold
+        '165, 122, 31'   // Deeper shadow gold
+      ];
+
+      class DustParticle {
+        constructor(x, y) {
+          this.x = x + (Math.random() - 0.5) * 15; // Slight initial spread
+          this.y = y + (Math.random() - 0.5) * 15;
+          // Gentle floating velocities
+          this.vx = (Math.random() - 0.5) * 1.5;
+          this.vy = (Math.random() - 0.5) * 1.5 - 0.5; // Slight upward buoyancy
+          this.radius = Math.random() * 2.5 + 0.5; // Delicate sizes
+          this.baseRadius = this.radius;
+          this.life = 1.0;
+          this.decay = Math.random() * 0.02 + 0.015; // Fade out speed
+          this.color = GOLD_COLORS[Math.floor(Math.random() * GOLD_COLORS.length)];
+          this.angle = Math.random() * Math.PI * 2;
+          this.spin = (Math.random() - 0.5) * 0.1;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          // Introduce slight drag for a floating dust effect
+          this.vx *= 0.96;
+          this.vy *= 0.96;
+          this.angle += this.spin;
+          this.life -= this.decay;
+          // Particles shrink slightly as they fade
+          this.radius = this.baseRadius * Math.max(this.life, 0);
+        }
+
+        draw(ctx) {
+          if (this.life <= 0) return;
+          ctx.save();
+          // Use screen blend mode for a luminous, magical feel
+          ctx.globalCompositeOperation = 'screen';
+          
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.angle);
+
+          // Draw the glowing dust speck
+          ctx.fillStyle = `rgba(${this.color}, ${this.life * 0.8})`;
+          
+          // Draw a small diamond/star shape for some particles to add elegance, otherwise circles
+          if (Math.random() > 0.7) {
+             ctx.beginPath();
+             ctx.moveTo(0, -this.radius * 1.5);
+             ctx.lineTo(this.radius * 0.5, 0);
+             ctx.lineTo(0, this.radius * 1.5);
+             ctx.lineTo(-this.radius * 0.5, 0);
+             ctx.closePath();
+             ctx.fill();
+          } else {
+             ctx.beginPath();
+             ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+             ctx.fill();
+          }
+
+          // Add a subtle outer glow to the particle
+          const glowGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, this.radius * 3);
+          glowGrad.addColorStop(0, `rgba(${this.color}, ${this.life * 0.4})`);
+          glowGrad.addColorStop(1, `rgba(${this.color}, 0)`);
+          ctx.fillStyle = glowGrad;
+          ctx.beginPath();
+          ctx.arc(0, 0, this.radius * 3, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+        }
+      }
+
+      // Spawn particles only when moving
+      function spawnDust(x, y, count = 2) {
+        for (let i = 0; i < count; i++) {
+            // Manage max particles to maintain performance and elegance
+            if (particles.length > MAX_PARTICLES) {
+                particles.shift(); // Remove oldest
+            }
+            particles.push(new DustParticle(x, y));
+        }
+      }
+
+      // Track cursor & touch
+      window.addEventListener('mousemove', (e) => {
+        pointer.x = e.clientX;
+        pointer.y = e.clientY;
+        spawnDust(pointer.x, pointer.y, Math.floor(Math.random() * 2) + 1);
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          pointer.x = e.touches[0].clientX;
+          pointer.y = e.touches[0].clientY;
+          spawnDust(pointer.x, pointer.y, 2);
+        }
+      }, { passive: true });
+
+      // Clear pointer when it leaves the window
+      window.addEventListener('mouseout', () => {
+         pointer.x = null;
+         pointer.y = null;
+      });
+
+      // Animation Loop
+      function renderLoop() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Update & Render particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.update();
+          p.draw(ctx);
+          if (p.life <= 0) {
+            particles.splice(i, 1);
+          }
+        }
+
+        requestAnimationFrame(renderLoop);
+      }
+
+      requestAnimationFrame(renderLoop);
+    })();
+
+    /* -------------------------------------------------------------
+       UI SCRIPTS: Navigation, Filtering & Interactive Helpers
+    ------------------------------------------------------------- */
+    // Mobile navigation toggle
+    const mobileBtn = document.getElementById('mobile-toggle');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    mobileBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('hidden');
+    });
+
+    // Close mobile drawer on link click
+    mobileDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+      });
+    });
+
+    // Filter films
+    function filterFilms(category) {
+      const cards = document.querySelectorAll('.film-card');
+      const buttons = document.querySelectorAll('.film-tab-btn');
+
+      // Update button styling
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-gold-500', 'text-noir-950');
+        btn.classList.add('bg-noir-800', 'text-neutral-300');
+      });
+      event.currentTarget.classList.add('bg-gold-500', 'text-noir-950');
+      event.currentTarget.classList.remove('bg-noir-800', 'text-neutral-300');
+
+      // Filter cards
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Copy to clipboard helper
+    function copyToClipboard(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast("Copied: " + text);
+      } catch (err) {
+        showToast("Copied to clipboard!");
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // Toast display
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      toastText.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2600);
+    }
+
+    // Contact form submission
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('form-feedback');
+      feedback.classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => {
+        feedback.classList.add('hidden');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
