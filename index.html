@@ -107,19 +107,6 @@
       background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
       background-size: 24px 24px;
     }
-
-    /* SPA Page Views */
-    .page-view {
-      display: none;
-      animation: pageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .page-view.active-page {
-      display: block;
-    }
-    @keyframes pageFadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 
@@ -131,7 +118,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo Vector -->
-      <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 group">
+      <a href="#hero" class="flex items-center gap-3 group">
         <div class="relative flex flex-col items-start">
           <div class="flex items-center space-x-1">
             <!-- Distinct NAAM Custom Emblem -->
@@ -163,18 +150,17 @@
 
       <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center space-x-8 text-xs lg:text-sm uppercase tracking-widest font-medium">
-        <a href="#home" onclick="navigateTo('home')" class="nav-link text-gold-300 transition-colors">Home</a>
-        <a href="#about" onclick="navigateTo('about')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Vision</a>
-        <a href="#productions" onclick="navigateTo('productions')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Films</a>
-        <a href="#awards" onclick="navigateTo('awards')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Award</a>
-        <a href="#collaborations" onclick="navigateTo('collaborations')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Network</a>
-        <a href="#upcoming" onclick="navigateTo('upcoming')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Upcoming</a>
-        <a href="#verticals" onclick="navigateTo('verticals')" class="nav-link text-neutral-300 hover:text-gold-300 transition-colors">Verticals</a>
+        <a href="#about" class="text-neutral-300 hover:text-gold-300 transition-colors">Vision</a>
+        <a href="#productions" class="text-neutral-300 hover:text-gold-300 transition-colors">Films</a>
+        <a href="#awards" class="text-neutral-300 hover:text-gold-300 transition-colors">National Award</a>
+        <a href="#collaborations" class="text-neutral-300 hover:text-gold-300 transition-colors">Collaborations</a>
+        <a href="#upcoming" class="text-neutral-300 hover:text-gold-300 transition-colors">Upcoming</a>
+        <a href="#verticals" class="text-neutral-300 hover:text-gold-300 transition-colors">Verticals</a>
       </nav>
 
       <!-- CTA Button -->
       <div class="hidden sm:flex items-center space-x-4">
-        <a href="#contact" onclick="navigateTo('contact')" class="nav-link px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest text-noir-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-0.5">
+        <a href="#contact" class="px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest text-noir-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-0.5">
           Partner With Us
         </a>
       </div>
@@ -187,14 +173,12 @@
 
     <!-- Mobile Drawer -->
     <div id="mobile-drawer" class="hidden md:hidden px-6 pt-3 pb-6 glass-card border-b border-gold-500/20 space-y-4 text-center">
-      <a href="#home" onclick="navigateTo('home')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Home</a>
-      <a href="#about" onclick="navigateTo('about')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Vision & Leadership</a>
-      <a href="#productions" onclick="navigateTo('productions')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Film Productions</a>
-      <a href="#awards" onclick="navigateTo('awards')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">National Award</a>
-      <a href="#collaborations" onclick="navigateTo('collaborations')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Collaborations</a>
-      <a href="#upcoming" onclick="navigateTo('upcoming')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Upcoming Slate</a>
-      <a href="#verticals" onclick="navigateTo('verticals')" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Brand Verticals</a>
-      <a href="#contact" onclick="navigateTo('contact')" class="block py-2.5 rounded-full text-xs font-bold uppercase tracking-widest text-noir-950 bg-gold-400">Contact Studio</a>
+      <a href="#about" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Vision & Leadership</a>
+      <a href="#productions" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Film Productions</a>
+      <a href="#awards" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">National Award</a>
+      <a href="#collaborations" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Collaborations</a>
+      <a href="#upcoming" class="block py-2 text-sm uppercase tracking-widest text-neutral-300 hover:text-gold-300">Upcoming Slate</a>
+      <a href="#contact" class="block py-2.5 rounded-full text-xs font-bold uppercase tracking-widest text-noir-950 bg-gold-400">Contact Studio</a>
     </div>
   </header>
 
@@ -255,10 +239,10 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="#productions" onclick="navigateTo('productions')" class="px-8 py-3.5 rounded-full font-semibold text-xs tracking-widest uppercase bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 text-noir-950 hover:brightness-110 shadow-[0_4px_25px_rgba(212,175,55,0.35)] transition-all">
+        <a href="#productions" class="px-8 py-3.5 rounded-full font-semibold text-xs tracking-widest uppercase bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 text-noir-950 hover:brightness-110 shadow-[0_4px_25px_rgba(212,175,55,0.35)] transition-all">
           Explore Portfolio
         </a>
-        <a href="#about" onclick="navigateTo('about')" class="px-8 py-3.5 rounded-full font-semibold text-xs tracking-widest uppercase border border-gold-500/40 text-gold-300 hover:bg-gold-500/10 transition-all">
+        <a href="#about" class="px-8 py-3.5 rounded-full font-semibold text-xs tracking-widest uppercase border border-gold-500/40 text-gold-300 hover:bg-gold-500/10 transition-all">
           The Visionaries
         </a>
       </div>
@@ -1168,7 +1152,7 @@
 
       <!-- Social & Quick Links -->
       <div class="flex items-center space-x-6 text-neutral-400 text-lg">
-        <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="hover:text-gold-300 transition-colors" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></a>
+        <a href="#hero" class="hover:text-gold-300 transition-colors" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></a>
         <a href="mailto:naamentertainmentllp@gmail.com" class="hover:text-gold-300 transition-colors" title="Email Studio"><i class="fa-solid fa-envelope"></i></a>
         <a href="tel:9698489000" class="hover:text-gold-300 transition-colors" title="Call Us"><i class="fa-solid fa-phone"></i></a>
       </div>
@@ -1187,87 +1171,6 @@
   </div>
 
   <script>
-    /* -------------------------------------------------------------
-       SPA ROUTING & DOM RESTRUCTURING SYSTEM
-       Dynamically converts sequential sections into isolated pages
-    ------------------------------------------------------------- */
-    document.addEventListener('DOMContentLoaded', () => {
-      // Define page structures mapping route IDs to section IDs
-      const pageStructure = {
-        'home': ['hero', 'stats-section'],
-        'about': ['about'],
-        'productions': ['productions'],
-        'awards': ['awards'],
-        'collaborations': ['collaborations'],
-        'upcoming': ['upcoming'],
-        'verticals': ['verticals', 'why-partner'],
-        'contact': ['contact']
-      };
-
-      // Add missing IDs for dynamic wrapping
-      const statsEl = document.querySelector('section.border-y.bg-noir-900\\/60');
-      if (statsEl) statsEl.id = 'stats-section';
-      
-      const whyPartnerEl = document.querySelector('section.py-24:not([id])');
-      if (whyPartnerEl) whyPartnerEl.id = 'why-partner';
-
-      // Create main viewport container
-      const mainContainer = document.createElement('main');
-      mainContainer.className = 'w-full min-h-screen pt-20 pb-10 relative z-10';
-      
-      const header = document.getElementById('main-nav');
-      header.after(mainContainer);
-
-      // Reparent DOM elements into isolated views
-      for (const [pageId, sectionIds] of Object.entries(pageStructure)) {
-        const pageDiv = document.createElement('div');
-        pageDiv.id = 'page-' + pageId;
-        pageDiv.className = 'page-view' + (pageId === 'home' ? ' active-page' : '');
-        
-        // Counteract the header padding for the immersive hero section
-        if (pageId === 'home') pageDiv.classList.add('-mt-20'); 
-
-        sectionIds.forEach(id => {
-          const el = document.getElementById(id);
-          if (el) pageDiv.appendChild(el);
-        });
-        mainContainer.appendChild(pageDiv);
-      }
-      
-      // Handle initial load routing if hash exists
-      const hash = window.location.hash.substring(1);
-      if (pageStructure[hash]) {
-        navigateTo(hash);
-      }
-    });
-
-    // Global navigation handler
-    window.navigateTo = function(pageId) {
-      // Hide all pages
-      document.querySelectorAll('.page-view').forEach(view => {
-        view.classList.remove('active-page');
-      });
-      // Show target page
-      const target = document.getElementById('page-' + pageId);
-      if (target) target.classList.add('active-page');
-
-      // Update nav link styles
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('text-gold-300');
-        link.classList.add('text-neutral-300');
-      });
-      
-      // Highlight active links
-      document.querySelectorAll(`a[href="#${pageId}"]`).forEach(link => {
-         link.classList.add('text-gold-300');
-         link.classList.remove('text-neutral-300');
-      });
-
-      // Scroll to top smoothly and close mobile menu
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      document.getElementById('mobile-drawer').classList.add('hidden');
-    };
-
     /* -------------------------------------------------------------
        ELEGANT GOLDEN PARTICLE DUST TRAIL SYSTEM
        Creates a sophisticated, fading trail of golden dust particles
